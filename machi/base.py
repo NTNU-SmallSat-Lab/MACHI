@@ -12,12 +12,14 @@ joseph.garrett@ntnu.no
 
 
 import numpy as np
+import copy
+
 
 def load_solar(wl):
     '''
     load the solar spectrum, interpolated to the wavelengths listed in wl
     '''
-    solar_spectrum = np.loadtxt("hypso/atmospheric/thuillier_solar_spectrum.csv", skiprows=1, delimiter=';')
+    solar_spectrum = np.loadtxt("../hypso-package/hypso/atmospheric/Solar_irradiance_Thuillier_2002.csv", skiprows=1, delimiter=',')
     solar_H1 = np.interp(wl, solar_spectrum[:,0], solar_spectrum[:,1] )
     return solar_H1
 
@@ -134,7 +136,7 @@ class AC:
         
             
 
-def atm_correction(cube, solar = 1, tol=0.01, verbose=False):
+def atm_correction(cube, solar = 1.0, tol=0.01, verbose=False):
     #generate mins
     mins = np.array([cube[:,i].min() for i in range(cube.shape[-1])])
     weights=1/np.sum(cube**2, axis=-1)
