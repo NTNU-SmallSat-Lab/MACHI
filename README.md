@@ -1,2 +1,2 @@
 # MACHI
-Minimal Atmospheric Compensation for Hyperspectral Imagers
+Minimal Atmospheric Compensation for Hyperspectral Images
