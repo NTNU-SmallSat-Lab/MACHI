@@ -1,5 +1,5 @@
 [project]
-name = "Minimal Atmospheric Compensation for Hyperspectral Images"
+name = "Minimal_Atmospheric_Compensation_for_Hyperspectral_Images"
 version = "0.1"
 authors = [
   { name="Joe Garrett", email="joseph.garrett@ntnu.no" },
