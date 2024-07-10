@@ -144,7 +144,7 @@ class AC:
         
             
 
-def atm_correction(cube, solar = 1.0, tol=0.01, verbose=False, approach_rate=1):
+def atm_correction(cube, solar = 1.0, tol=0.01, verbose=False, approach_rate=1, est_min_R = 0.05):
     #generate mins
     mins = np.array([cube[:,i].min() for i in range(cube.shape[-1])])
     weights=1/np.sum(cube**2, axis=-1)
@@ -170,8 +170,15 @@ def atm_correction(cube, solar = 1.0, tol=0.01, verbose=False, approach_rate=1):
         l2[i] = connections
     
     #initialize T, obj
-    T = np.ones_like(mins)
-    A = mins
+    
+    #A = mins*(1-est_min_R)
+    T = (1-2*mins)
+    standardization = np.ones_like(mins)
+    med = int(len(mins)/2)
+    for i in range(len(standardization)):
+        standarization = np.maximum(0, 1-np.abs(i-med)/med)
+    standardization /= standardization.max()
+    A = mins*(1-est_min_R*standardization)
     obj = atm_obj((cube-A)/(solar*T), weights)
     objs.append(obj)
     if verbose:
@@ -185,9 +192,13 @@ def atm_correction(cube, solar = 1.0, tol=0.01, verbose=False, approach_rate=1):
                   weights=weights, solar=solar)
         T[list(l1.keys())] = (1-approach_rate)*T[list(l1.keys())] + approach_rate*Tnew
 
+        T[T > (1-2*A)] = 1-2*A[T > (1-2*A)]
+        T[T<0] = 0
         Tnew = T_update(cube, l2, A, T, 
                   weights=weights, solar=solar)
         T[list(l2.keys())] = (1-approach_rate)*T[list(l2.keys())] + approach_rate*Tnew
+        T[T > (1-2*A)] = 1-2*A[T > (1-2*A)]
+        T[T<0] = 0
         
         #update scattering
         Anew = A_update(cube, l1, A, T, mins,
