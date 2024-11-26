@@ -147,7 +147,7 @@ class AC:
 def atm_correction(cube, solar = 1.0, tol=0.01, verbose=False, approach_rate=1, est_min_R = 0.05):
     #generate mins
     mins = np.array([cube[:,i].min() for i in range(cube.shape[-1])])
-    weights=1/np.sum(cube**2, axis=-1)
+    weights=1/np.sum((cube-mins+est_min_R)**2, axis=-1)
     objs = []
     
     #generate odd and even lattice
