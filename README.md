@@ -17,3 +17,4 @@ This objective function roughly corresponds to the notion that the reflectance s
 
 ![image](https://github.com/user-attachments/assets/a96da8f0-e62f-48e1-93de-790732b635a0)
 
+If you find this useful, please let us know and we'll share a draft of our upcoming paper. 
