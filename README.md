@@ -27,4 +27,4 @@ This objective function roughly corresponds to the notion that the reflectance s
 7. Poor estimation of Rayleigh and aerosol scattering​, because they are spectrally smooth
 
 
-If you find this useful, please let us know and we'll share a draft of our upcoming paper. 
+If you find this useful, please let us know and we'll share a draft of our upcoming paper. If you are interested in assisting with in situ validation, we'd be happy for you to join us. 
