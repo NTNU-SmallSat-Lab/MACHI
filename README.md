@@ -18,7 +18,7 @@ This objective function roughly corresponds to the notion that the reflectance s
 ![image](https://github.com/user-attachments/assets/a96da8f0-e62f-48e1-93de-790732b635a0)
 
 Beware of trusting MACHI too much:
-1. Minimal in situ validation​
+1. Minimal in situ validation​ (we're working on this!)
 2. Simplistic light propagation model​
 3. Needs "expected minimum reflectance" input (default 1%)​
 4. Can't (yet) handle AC varying across image, alhtough it does vary (aerosols, sun glint, water vapor)​
