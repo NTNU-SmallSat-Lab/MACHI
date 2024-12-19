@@ -17,4 +17,14 @@ This objective function roughly corresponds to the notion that the reflectance s
 
 ![image](https://github.com/user-attachments/assets/a96da8f0-e62f-48e1-93de-790732b635a0)
 
+Beware of trusting MACHI too much:
+1. Minimal in situ validation​
+2. Simplistic light propagation model​
+3. Needs "expected minimum reflectance" input (default 1%)​
+4. Can't (yet) handle AC varying across image, alhtough it does vary (aerosols, sun glint, water vapor)​
+5. Problems with nearly complete absorption within a band​
+6. No sun glint correction at all​
+7. Poor estimation of Rayleigh and aerosol scattering​, because they are spectrally smooth
+
+
 If you find this useful, please let us know and we'll share a draft of our upcoming paper. 
