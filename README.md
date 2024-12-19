@@ -1,5 +1,10 @@
 # MACHI
-Minimal Atmospheric Compensation for Hyperspectral Images
+Minimal Atmospheric Compensation for Hyperspectral Images:
+
+Before
+![image](https://github.com/user-attachments/assets/c893a150-558d-47d8-b349-aff18c2bdfa9)
+After
+![image](https://github.com/user-attachments/assets/cc851fc6-8f6b-4b48-9134-8c80006eff3e)
 
 Strictly speaking, only Numpy is required, but the demo relies on the [HYPSO package](https://github.com/NTNU-SmallSat-Lab/hypso-package). 
 
