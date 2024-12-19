@@ -8,5 +8,12 @@ Strictly speaking, only Numpy is required, but the demo relies on the [HYPSO pac
 
 The atmospheric correction is written at R_surface = (R_ToA - S) / T, where S is the amount of sunlight scattered off the atmospher back to the satellite (as a fraction of solar irradiance) and T is the proportion of light transmitted through the atmosphere.  
 The variable S is initialized with the *dark pixel subtraction* technique, and T is initiallized as 1-S_0. This initialization is expected to be updated in a future version. 
-Then the MACHI algorithm alternately updates estimates of the transmission and scattering in order to minimize the derivative of the spectra with respect to wavelength, averaged over the whole image. 
+
+![image](https://github.com/user-attachments/assets/8a50dbc2-8a38-4ff8-aa3f-9dd6c72bff7b)
+
+
+The the MACHI algorithm alternately updates estimates of the transmission and scattering in order to minimize the derivative of the spectra with respect to wavelength, averaged over the whole image. 
 This objective function roughly corresponds to the notion that the reflectance spectra of most materials are relatively smooth, while the gaseous transmission spectra through the atmosphere are not. 
+
+![image](https://github.com/user-attachments/assets/a96da8f0-e62f-48e1-93de-790732b635a0)
+
